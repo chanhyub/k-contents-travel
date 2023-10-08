@@ -1,6 +1,8 @@
 package com.nomadlab.imstupidnigger.modules.content.contentLocation;
 
+import com.nomadlab.imstupidnigger.modules.common.file.FileInfo;
 import com.nomadlab.imstupidnigger.modules.common.jpa.BaseTime;
+import com.nomadlab.imstupidnigger.modules.content.Content;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,8 +29,16 @@ public class ContentLocation extends BaseTime {
     private String locationDetail;
 
     @Comment("위도")
-    private String lat;
+    private Double lat;
 
     @Comment("경도")
-    private String lng;
+    private Double lng;
+
+    @Comment("컨텐츠")
+    @ManyToOne
+    private Content content;
+
+    @Comment("촬영지 이미지")
+    @ManyToOne
+    private FileInfo image;
 }
